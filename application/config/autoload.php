@@ -139,4 +139,8 @@ $autoload['language'] = array();
  */
 
 //$autoload['model'] = array('login_model'=> 'login');
-$autoload['model'] = array();  
+$autoload['model'] = array( 
+    'Servicos_model' => 'servicos',
+    'Funcionarios_model' => 'funcionarios',
+    'Agendamentos_model' => 'agendamentos'
+    );  

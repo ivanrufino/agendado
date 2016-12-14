@@ -23,7 +23,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://www.agendado.hol.es';
+$base=array(
+    'test'=>'http://localhost/agendado',
+    'development'=>'http://localhost/agendado',
+    'producion'=>'http://www.agendado.hol.es',
+    
+    
+);
+
+$config['base_url'] = $base[ENVIRONMENT];
 
 /*
 |--------------------------------------------------------------------------
