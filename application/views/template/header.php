@@ -15,6 +15,12 @@
   <link href="<?php echo base_url('assets/css/fullcalendar_materialize.css')?>" type="text/css" rel="stylesheet" media="screen,projection"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
 <script src="<?php echo base_url('assets/js/jquery-3.1.1.min.js') ?>"></script>
+
+
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/470293/picker.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/470293/picker.date.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/470293/picker.time.js"></script>
+
 </head>
 <body>
   <nav class="white" role="navigation">
