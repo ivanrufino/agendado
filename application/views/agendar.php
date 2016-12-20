@@ -7,17 +7,12 @@
     <div class="col s1"> </div>
     <div class="col s2">
 
-        <div class="hidden" >
-            <input type="date" class="datepicker" style="display:none"/>
-            <input type="date" class="timepicker" />
-        </div>
-
         <h4><?php echo $funcionario['nome'] ?></h4>
         <ul class="collection with-header">
             <li class="collection-header"><h6>Agendamento</h6></li>
             <li class=""> 
-
-                <a class="waves-effect waves-light btn" id="agendamento_horario" href="#"  >Horário</a>
+                <a class="waves-effect waves-light btn" href="#agendamento_horario">Agendar</a>
+                <!--<a class="waves-effect waves-light btn" id="agendamento_horario" href="#"  >Horário</a>-->
             </li>
             <li class="collection-header"><h6>Outros Serviços</h6></li>
             <?php foreach ($servicos as $servico) : ?>
@@ -32,141 +27,99 @@
     <!--<div class="s1">&nbsp;</div>-->
 </div>
 <!--</div>-->
-<a class="waves-effect waves-light btn" href="#modal1">Modal</a>
+
 <!-- Modal Structure -->
-<div id="modal1" class="modal">
-    <div class="modal-content">
+<div id="agendamento_horario" class="modal">
+    <div class="modal-content row">
         <h4>Modal Header</h4>
 
-        <input id="datetimepicker" type="text" >
-
+        <div class="col s6">
+            <input id="datetimepicker" type="text" style="display:none" >
+        </div>
+        <div class="col s6"> 
+            <p>Dados do Agendamento</p><hr>
+            <p><strong>Nome:</strong> Fulando de tal</p>
+            <p><strong>Serviço:</strong> <?php echo $servico['servico']; ?></p>
+            <p class="data_agend"><strong>Data:</strong> <span></span></p>
+            <p class="hora_agend"><strong>Hora:</strong> <span></span></p>
+        </div>
     </div>
     <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="btn_agendar">Agendar</a>
+        <a href="#!" class=" modal-action  waves-effect waves-green btn-flat" id="btn_agendar">Agendar</a>
     </div>
 </div>
 
 <script>
     var eventos;
     $(document).ready(function () {
+        $('.modal').modal();
+
         var logic = function (currentDateTime) {
             // 'this' is jquery object datetimepicker
-            if (currentDateTime.getDay() == 6) {                
+            if (currentDateTime.getDay() == 6) {
                 this.setOptions({
                     //allowTimes:['10:00', '11:00','12:00'],
-                    minTime: '11:00',formatTime:'H:i'
+                    //minTime: '11:00:00',formatTime:'H:i'
                 });
             } else
                 this.setOptions({
-                    allowTimes:[],
-                    minTime: '8:00'
+                    allowTimes: [],
+                    //  minTime: '8:00'
                 });
         };
-        var showEvento = function (current_time, $input) {
-            $('#btn_agendar').focus();
-            console.log(current_time);
-            console.log($input);
-        };
-        $('#datetimepicker').datetimepicker({
-            mask: '39-19-9999 29:59',
-            format: 'd-m-Y H:i',
-            lang: 'pt-BR',
+
+
+        $('#datetimepicker').appendDtpicker({
             inline: true,
-            onChangeDateTime: logic,
-            onShow: logic,
-            weeks: true,
-            minDate: 0,
-            startDate: '17/12/2016',
-            onSelectTime: showEvento,
-            
-            /*allowTimes: [
-                '09:00',
-                '11:00',
-                '12:00',
-                '21:00'
-            ],*/
-            disabledDates: ['16-12-2016'],formatDate:'d-m-Y'
-
-
+            calendarMouseScroll: false,
+            setDate: new Date(2016, 12, 25, 13, 0, 0),
+            //  minuteInterval: 60,
+            minTime: '08:00',
+            maxTime: '18:01',
+            futureOnly: true,
         });
 
-        $('.modal').modal();
         eventos = <?php echo $eventos; ?>;
-        /* console.log(eventos);*/
+
 
         eventos.push({
             title: 'This is a Material Design event!',
-            start: '2016-12-14T11:30:00',
+            start: '2016-12-23T11:30:00',
             //end: 'someEndDate',
             backgroundColor: '#C2185B'
         });
-        console.log(eventos)
 
+        var dataOld = new Date($("#datetimepicker").val());
+        var novaData = dataOld.getFullYear() + '-' + (dataOld.getMonth() + 1) + '-' + dataOld.getDate() + ' ' + (dataOld.getHours() + 1) + ':00'
+        // var novaData = dataOld.getDate();
+        $("#datetimepicker").val(novaData)
+        $("#datetimepicker").change(function () {
+            console.log($(this).val())
+            completeDados($(this).val())
+        }).change()
+        $('#btn_agendar').click(function () {
+            var date = $('#datetimepicker').handleDtpicker('getDate');
 
-        /* setTimeout(() => {
-         var input = $('.datepicker').pickadate();
-         var picker = input.pickadate('picker');
-         picker.on('open', function () {
-         console.log('Opened.. and here I am!');
-         })
-         
-         
-         }, 1000);*/
-        /*
-         $('.timepicker').pickatime({
-         twelvehour: false,
-         donetext: 'Done',
-         format: 'HH:i',    
-         formatSubmit: 'HH:i',
-         interval:60,
-         min: [8,0],
-         disable:[{from:8,to:true}],
-         
-         onClose:function(){
-         if($('.timepicker').val() != ""){
-         var dataHora = $('.datepicker').val()+"T"+$('.timepicker').val();
-         $('#agendamento_horario').html(dataHora);
-         $('#calendar').fullCalendar( 'gotoDate', dataHora);
-         
-         console.log($('.timepicker').val())
-         $('#calendar').fullCalendar('renderEvent',{title: 'Novo evento',start: dataHora,});
-         }
-         },
-         beforeShow: function () {
-         activeElement = $(document.activeElement)
-         activeForm = activeElement.closest('form')[0]
-         
-         // Remove existing validation errors
-         activeForm.ClientSideValidations.removeError(activeElement)
-         
-         // Prevent a validation error occurring when element un-focusses
-         activeElement.disableClientSideValidations();
-         },
-         afterDone: function () {
-         activeElement = $(document.activeElement)
-         $(activeElement).enableClientSideValidations();
-         }
-         });
-         $('#agendamento_horario').on('click', function (event) {
-         event.stopPropagation();
-         var input = $('.datepicker').pickadate({
-         today:'Hoje',
-         clear: 'Limpar',
-         close: 'Ok',
-         closeOnSelect: true,
-         format: 'yyyy-mm-dd',
-         min:'0',
-         onClose: function(){
-         $('.timepicker').focus();
-         var dataHora = $('.datepicker').val();
-         $('#agendamento_horario').html(dataHora)
-         console.log('asd');return true;
-         
-         },
-         });
-         var picker = input.pickadate('picker');
-         picker.open();
-         });*/
+            console.log(date.getFullYear())
+        })
+
+        function completeDados(dataFull) {
+            dataFull = new Date(dataFull);
+            var data = addZero(dataFull.getDate()) + '-' + addZero(dataFull.getMonth()+1) + '-' + dataFull.getFullYear();
+            var hora = dataFull.getHours() + ':' + addZero(dataFull.getMinutes());
+            $("p.data_agend > span").html(data)
+            $("p.hora_agend > span").html(hora)
+            /*hora_agend
+             <p class="data_agend"><strong>Data:</strong> <span></span></p>
+             <p class="hora_agend"><strong>Hora:</strong> <span></span></p>*/
+            console.log(data)
+        }
+        function addZero(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
     })
 
 </script>

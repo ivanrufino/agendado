@@ -11,14 +11,18 @@
   <link href="<?php echo base_url('assets/css/style.css')?>" type="text/css" rel="stylesheet" media="screen,projection"/>
   
   <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css" type="text/css" rel="stylesheet"media="screen,projection" />
-  <!--<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.print.css" type="text/css" rel="stylesheet" />-->
+  
   <link href="<?php echo base_url('assets/css/fullcalendar_materialize.css')?>" type="text/css" rel="stylesheet" media="screen,projection"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+  
 <script src="<?php echo base_url('assets/js/jquery-3.1.1.min.js') ?>"></script>
 
 <!-- DATETIME PICKER -->
-<link href="<?php echo base_url('assets/build/jquery.datetimepicker.min.css')?>" type="text/css" rel="stylesheet" media="screen,projection"/>
-<script src="<?php echo base_url('assets/build/jquery.datetimepicker.full.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/datepicker/jquery.simple-dtpicker.js') ?>"></script>
+<link href="<?php echo base_url('assets/datepicker/jquery.simple-dtpicker.css')?>" type="text/css" rel="stylesheet"/>
+
+
+
 <!--<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/470293/picker.js"></script>
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/470293/picker.date.js"></script>
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/470293/picker.time.js"></script>-->
