@@ -91,7 +91,7 @@
 
         var dataOld = new Date($("#datetimepicker").val());
         var novaData = dataOld.getFullYear() + '-' + (dataOld.getMonth() + 1) + '-' + dataOld.getDate() + ' ' + (dataOld.getHours() + 1) + ':00'
-        // var novaData = dataOld.getDate();
+        
         $("#datetimepicker").val(novaData)
         $("#datetimepicker").change(function () {
             console.log($(this).val())
