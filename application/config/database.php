@@ -97,10 +97,10 @@ $db['production'] = array(
 
 $db['test'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '123456',
-	'database' => 'aggenda2',
+	'hostname' => 'mysql.hostinger.com.br',
+	'username' => 'u421926892_agend',
+	'password' => 'l2udPXoC5xrn',
+	'database' => 'u421926892_agend',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
