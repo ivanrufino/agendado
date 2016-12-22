@@ -25,7 +25,11 @@ class Servicos extends CI_Controller{
         $this->data['servicos'] = $this->funcionarios->getWhere('id',$funcionario['id']);
         
         //die(print_r($this->data['servicos']));
+        
         $this->data['eventos'] = preg_replace('/"([a-zA-Z_]+[a-zA-Z0-9_]*)":/','$1:',json_encode($agendamentos)) ;
+        if(is_null($agendamentos)){
+            $this->data['eventos']="{}";
+        }
         //die(print_r($agendamentos));
         $this->data['funcionario']=$funcionario;
         $this->load->view('template/header',  $this->data);
