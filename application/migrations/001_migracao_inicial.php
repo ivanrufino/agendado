@@ -44,7 +44,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                 `TELEFONE` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
                 PRIMARY KEY (`id`),
                 KEY `SEGMENTO` (`segmento`)
-               ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+               )  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `associado` (
                     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -60,7 +60,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                     PRIMARY KEY (`id`),
                     KEY `id_empresa` (`id_empresa`),
                     CONSTRAINT `associado_ibfk_1` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id`) ON DELETE CASCADE
-                   ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+                   )   DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `associado_empresa` (
                 `id_associado` int(11) NOT NULL,
@@ -69,7 +69,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                 KEY `id_empresa` (`id_empresa`),
                 CONSTRAINT `associado_empresa_ibfk_1` FOREIGN KEY (`id_associado`) REFERENCES `associado` (`id`) ON DELETE CASCADE,
                 CONSTRAINT `associado_empresa_ibfk_2` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id`) ON DELETE CASCADE
-               ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+               )  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `compra` (
                     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -80,7 +80,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                     `data` datetime NOT NULL,
                     `ultima_alteracao` datetime NOT NULL,
                     PRIMARY KEY (`id`)
-                   ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+                   )  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `plano` (
                     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -89,7 +89,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                     `valor_anual` decimal(10,2) NOT NULL,
                     `descricao` text COLLATE utf8_unicode_ci NOT NULL,
                     PRIMARY KEY (`id`)
-                   ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+                   )   DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `detalhes_plano` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -105,7 +105,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                 PRIMARY KEY (`id`),
                 KEY `id_plano` (`id_plano`),
                 CONSTRAINT `detalhes_plano_ibfk_1` FOREIGN KEY (`id_plano`) REFERENCES `plano` (`id`) ON DELETE CASCADE
-               ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+               )  AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `endereco` (
                     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -120,14 +120,14 @@ class Migration_Migracao_inicial extends CI_Migration {
                     PRIMARY KEY (`id`),
                     UNIQUE KEY `id_empresa` (`id_empresa`),
                     CONSTRAINT `endereco_ibfk_1` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id`) ON DELETE CASCADE
-                   ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+                   )   DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `feriado_nacional` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
                 `data` datetime NOT NULL,
                 `feriado` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
                 PRIMARY KEY (`id`)
-               ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+               )   DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
                ";
         $queries[] = "CREATE TABLE IF NOT EXISTS `funcionario` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -137,7 +137,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                 `foto` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
                 `status` tinyint(1) NOT NULL DEFAULT '1',
                 PRIMARY KEY (`id`)
-               ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='(funcionario ou num_sala)o agendamento pertence a esta tabela '";
+               )   DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='(funcionario ou num_sala)o agendamento pertence a esta tabela '";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `servicos` (
                     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -147,7 +147,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                     `textcolor` varchar(55) COLLATE utf8_unicode_ci DEFAULT NULL,
                     `bordercolor` varchar(55) COLLATE utf8_unicode_ci DEFAULT NULL,
                     PRIMARY KEY (`id`)
-                   ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+                   )  AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `func_serv` (
                     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -161,7 +161,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                     KEY `FUNC_SERV_ibfk_2` (`id_servico`),
                     CONSTRAINT `func_serv_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id`) ON DELETE CASCADE,
                     CONSTRAINT `func_serv_ibfk_2` FOREIGN KEY (`id_servico`) REFERENCES `servicos` (`id`) ON DELETE CASCADE
-                   ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ";
+                   )  AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ";
 
         $queries[] = "	
                 CREATE TABLE IF NOT EXISTS `horario` (
@@ -173,7 +173,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                  `funcionamento` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
                  UNIQUE KEY `id_funcSala` (`id_funcSala`),
                  CONSTRAINT `horario_ibfk_1` FOREIGN KEY (`id_funcSala`) REFERENCES `funcionario` (`id`) ON DELETE CASCADE
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT=''";
+                )  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT=''";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `usuario` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -188,7 +188,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                 `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
                 `cpf` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
                 PRIMARY KEY (`id`)
-               ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+               )   DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `mensagem` (
             `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -204,12 +204,12 @@ class Migration_Migracao_inicial extends CI_Migration {
             KEY `id_associado` (`id_associado`),
             CONSTRAINT `mensagem_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `usuario` (`id`) ON DELETE SET NULL,
             CONSTRAINT `mensagem_ibfk_2` FOREIGN KEY (`id_associado`) REFERENCES `associado` (`id`) ON DELETE CASCADE) 
-            ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Tabela de mensagem de cliente para empresas/associados'";
+             DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Tabela de mensagem de cliente para empresas/associados'";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `plano_associado` (
                     `id_associado` int(11) NOT NULL,
                     `id_plano` int(11) NOT NULL
-                   ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+                   )  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `segmento` (
                 `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -218,7 +218,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                 `slug` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
                 `tipo` varchar(2) COLLATE utf8_unicode_ci NOT NULL DEFAULT '1' COMMENT '1-Serviços, 2 Locação',
                 PRIMARY KEY (`id`)
-               ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+               )   DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
 
 
 
@@ -234,7 +234,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                 PRIMARY KEY (`id`),
                 KEY `id_funcionario` (`id_funcionario`),
                 CONSTRAINT `agenda_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id`) ON DELETE CASCADE
-               ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+               )  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `agendamento` (
                     `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -257,7 +257,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                     KEY `id_servico` (`id_servico`),
                     CONSTRAINT `agendamento_ibfk_1` FOREIGN KEY (`id_funcionario`) REFERENCES `funcionario` (`id`),
                     CONSTRAINT `agendamento_ibfk_2` FOREIGN KEY (`id_cliente`) REFERENCES `usuario` (`id`) ON DELETE CASCADE
-                   ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
+                   )  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
         return $queries;
     }
 
