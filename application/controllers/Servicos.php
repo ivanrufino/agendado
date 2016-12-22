@@ -30,7 +30,7 @@ class Servicos extends CI_Controller{
         if(is_null($agendamentos)){
             $this->data['eventos']="{}";
         }
-        //die(print_r($agendamentos));
+        die(var_dump( $this->data['eventos']));
         $this->data['funcionario']=$funcionario;
         $this->load->view('template/header',  $this->data);
         $this->load->view('agendar');
