@@ -95,7 +95,7 @@ $db['production'] = array(
 	'save_queries' => TRUE
 );
 
-$db['test'] = array(
+$db['testing'] = array(
 	'dsn'	=> '',
 	'hostname' => 'mysql.hostinger.com.br',
 	'username' => 'u421926892_agend',

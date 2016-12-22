@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $base=array(
-    'test'=>'http://localhost/agendado',
+    'testing'=>'http://www.agendado.hol.es',
     'development'=>'http://localhost/agendado',
     'producion'=>'http://www.agendado.hol.es',
     
