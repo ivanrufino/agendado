@@ -432,13 +432,13 @@
 		if(date == null){
 			date = new Date();
 		}
-
+                
 		var y = date.getFullYear();
 		var m = date.getMonth() + 1;
 		var d = date.getDate();
 		var hou = date.getHours();
 		var min = date.getMinutes();
-
+                
 		date_format = date_format.replace(/YYYY/gi, y)
 		.replace(/YY/g, y - 2000)/* century */
 		.replace(/MM/g, zpadding(m))
@@ -449,6 +449,7 @@
 		.replace(/h/g, hou)
 		.replace(/mm/g, zpadding(min))
 		.replace(/m/g, min);
+                
 		return date_format;
 	};
 
@@ -461,7 +462,8 @@
 		var locale = $picker.data("locale");
 		var format = getDateFormat($picker.data("dateFormat"), locale, $picker.data('dateOnly'));
 		
-		var old = $inp.val();                        
+		var old = $inp.val();  
+                
 		$inp.val(getFormattedDate(date, format));
 		if (old != $inp.val()) { // only trigger if it actually changed to avoid a nasty loop condition
 			$inp.trigger("change");
@@ -549,7 +551,7 @@
 		/* Read locale option */
 		var locale = $picker.data("locale");
 		if (!lang.hasOwnProperty(locale)) {
-			locale = 'en';
+			locale = 'br';
 		}
 
 		/* Calculate dates */

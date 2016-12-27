@@ -28,9 +28,9 @@ class Servicos extends CI_Controller{
         
         $this->data['eventos'] = preg_replace('/"([a-zA-Z_]+[a-zA-Z0-9_]*)":/','$1:',json_encode($agendamentos)) ;
         if(is_null($agendamentos)){
-            $this->data['eventos']=  json_decode(array()) ;
+            $this->data['eventos']=  json_encode(array()) ;
         }
-        //die(var_dump( $this->data['eventos']));
+       
         $this->data['funcionario']=$funcionario;
         $this->load->view('template/header',  $this->data);
         $this->load->view('agendar');

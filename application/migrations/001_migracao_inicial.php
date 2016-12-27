@@ -55,7 +55,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                     `status` varchar(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'I' COMMENT 'I - inativo, A -ativo',
                     `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
                     `nome_responsavel` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-                    `sobrenome_responsavem` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+                    `sobrenome_responsavel` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
                     `id_empresa` int(11) DEFAULT NULL,
                     PRIMARY KEY (`id`),
                     KEY `id_empresa` (`id_empresa`),
@@ -147,7 +147,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                     `textcolor` varchar(55) COLLATE utf8_unicode_ci DEFAULT NULL,
                     `bordercolor` varchar(55) COLLATE utf8_unicode_ci DEFAULT NULL,
                     PRIMARY KEY (`id`)
-                   )  AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+                   )  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
         $queries[] = "CREATE TABLE IF NOT EXISTS `func_serv` (
                     `id` int(11) NOT NULL AUTO_INCREMENT,

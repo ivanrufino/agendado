@@ -53,10 +53,25 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-$_SERVER['CI_ENV']='testing';
-
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
-
+//$_SERVER['CI_ENV']='testing';
+	//
+switch ($_SERVER["HTTP_HOST"]) {
+    case "localhost":
+        $_SERVER['CI_ENV']='development';
+       
+        break;
+    case "www.agendado.hol.es":
+        $_SERVER['CI_ENV']='testing';
+        
+        break;
+     case "www.agendado.com.br":
+        $_SERVER['CI_ENV']='production';
+    
+         default:
+             $_SERVER['CI_ENV']='development';
+        break;
+}
+define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING

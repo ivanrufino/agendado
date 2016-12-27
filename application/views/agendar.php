@@ -4,8 +4,8 @@
 <!--<div class="container">-->
 <div class="row">
     <div class="col s12 center-align"><h4> <?php echo $funcionario['nome'] . ' - ' . $funcionario['servico'] ?> </h4></div>
-    <div class="col s1"> </div>
-    <div class="col s2">
+    <div class="col m1 hide-on-small-only"> </div>
+    <div class="col s12 m2">
 
         <h4><?php echo $funcionario['nome'] ?></h4>
         <ul class="collection with-header">
@@ -14,13 +14,17 @@
                 <a class="waves-effect waves-light btn" href="#agendamento_horario">Agendar</a>
                 <!--<a class="waves-effect waves-light btn" id="agendamento_horario" href="#"  >Horário</a>-->
             </li>
+            <li>
+                <p>Dias disponíveis: <strong><?php echo getDias($funcionario['dias']) ?></strong></p>
+                <p>Horarios disponíveis: <strong></strong></p>
+            </li>
             <li class="collection-header"><h6>Outros Serviços</h6></li>
             <?php foreach ($servicos as $servico) : ?>
                 <li class="collection-item"><a href="<?php echo base_url('servicos/agendar/' . url_title($servico['servico']) . '/' . $servico['id_func_serv']); ?>"><?php echo $servico['servico'] ?></a></li>
             <?php endforeach; ?>
         </ul>
     </div>
-    <div class="col s8">
+    <div class="col s12 m8 ">
         <br>
         <div id='calendar'></div>
     </div>
@@ -72,13 +76,18 @@
         $('#datetimepicker').appendDtpicker({
             inline: true,
             calendarMouseScroll: false,
-            setDate: new Date(2016, 12, 25, 13, 0, 0),
+           
             //  minuteInterval: 60,
-            minTime: '08:00',
-            maxTime: '18:01',
+            minTime: '<?php echo $funcionario['hora_inicio']; ?>',
+            maxTime: '<?php echo $funcionario['hora_fim']; ?>',
             futureOnly: true,
+            locale: "br",
+            allowWdays:[ <?php echo $funcionario['dias']; ?>]
+            
         });
-
+        
+        $('#datetimepicker').handleDtpicker('setDate', new Date(new Date().getTime() + 24 * 60 * 60 * 1000));
+        
         eventos = <?php echo $eventos; ?>;
 
 
@@ -92,34 +101,27 @@
         var dataOld = new Date($("#datetimepicker").val());
         var novaData = dataOld.getFullYear() + '-' + (dataOld.getMonth() + 1) + '-' + dataOld.getDate() + ' ' + (dataOld.getHours() + 1) + ':00'
         
-        $("#datetimepicker").val(novaData)
+       // $("#datetimepicker").val(novaData)
         $("#datetimepicker").change(function () {
-            console.log($(this).val())
+          //  console.log($(this).val())
             completeDados($(this).val())
         }).change()
         $('#btn_agendar').click(function () {
             var date = $('#datetimepicker').handleDtpicker('getDate');
 
-            console.log(date.getFullYear())
+           // console.log(date.getFullYear())
         })
 
         function completeDados(dataFull) {
-            dataFull = new Date(dataFull);
-            var data = addZero(dataFull.getDate()) + '-' + addZero(dataFull.getMonth()+1) + '-' + dataFull.getFullYear();
-            var hora = dataFull.getHours() + ':' + addZero(dataFull.getMinutes());
-            $("p.data_agend > span").html(data)
-            $("p.hora_agend > span").html(hora)
-            /*hora_agend
-             <p class="data_agend"><strong>Data:</strong> <span></span></p>
-             <p class="hora_agend"><strong>Hora:</strong> <span></span></p>*/
-            console.log(data)
+            dataFull = dataFull.split(" ");
+            console.log(dataFull);
+
+            $("p.data_agend > span").html(dataFull[0])
+            $("p.hora_agend > span").html(dataFull[1])
+            
+          //  console.log(data)
         }
-        function addZero(i) {
-            if (i < 10) {
-                i = "0" + i;
-            }
-            return i;
-        }
+        
     })
 
 </script>

@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
   |	$autoload['helper'] = array('url', 'file');
  */
 
-$autoload['helper'] = array('form', 'url', 'text','number');
+$autoload['helper'] = array('form', 'url', 'text','number','funcoesbasicas');
 
 
 /*
@@ -140,7 +140,8 @@ $autoload['language'] = array();
 
 //$autoload['model'] = array('login_model'=> 'login');
 $autoload['model'] = array( 
-    'Servicos_model' => 'servicos',
-    'Funcionarios_model' => 'funcionarios',
-    'Agendamentos_model' => 'agendamentos'
+    'Servicos_model'        => 'servicos',
+    'Funcionarios_model'    => 'funcionarios',
+    'Agendamentos_model'    => 'agendamentos',
+    'Associados_model'      => 'associados',
     );  
