@@ -24,5 +24,7 @@ class Home extends CI_Controller{
         $this->load->view('admin/template/right-sidebar-nav');
         $this->load->view('admin/template/footer');
     }
-    
+    public function page404() {
+        echo "pagina não encontrada, não foi dessa vez mané";
+    }
 }

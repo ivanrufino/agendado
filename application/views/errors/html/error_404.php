@@ -1,64 +1,79 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>404 Page Not Found</title>
-<style type="text/css">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-::selection { background-color: #E13300; color: white; }
-::-moz-selection { background-color: #E13300; color: white; }
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
+        <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
+        <title>Página não encontrada: erro 404</title>
 
-body {
-	background-color: #fff;
-	margin: 40px;
-	font: 13px/20px normal Helvetica, Arial, sans-serif;
-	color: #4F5155;
-}
+        <!-- Favicons-->
+        <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+        <!-- Favicons-->
+        <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+        <!-- For iPhone -->
+        <meta name="msapplication-TileColor" content="#00bcd4">
+        <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+        <!-- For Windows Phone -->
 
-a {
-	color: #003399;
-	background-color: transparent;
-	font-weight: normal;
-}
 
-h1 {
-	color: #444;
-	background-color: transparent;
-	border-bottom: 1px solid #D0D0D0;
-	font-size: 19px;
-	font-weight: normal;
-	margin: 0 0 14px 0;
-	padding: 14px 15px 10px 15px;
-}
+        <!-- CORE CSS-->
 
-code {
-	font-family: Consolas, Monaco, Courier New, Courier, monospace;
-	font-size: 12px;
-	background-color: #f9f9f9;
-	border: 1px solid #D0D0D0;
-	color: #002166;
-	display: block;
-	margin: 14px 0 14px 0;
-	padding: 12px 10px 12px 10px;
-}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="<?php echo base_url('assets/css/admin/materialize.css') ?> " type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="<?php echo base_url('assets/css/admin/style.css') ?> " type="text/css" rel="stylesheet" media="screen,projection">
 
-#container {
-	margin: 10px;
-	border: 1px solid #D0D0D0;
-	box-shadow: 0 0 8px #D0D0D0;
-}
 
-p {
-	margin: 12px 15px 12px 15px;
-}
-</style>
-</head>
-<body>
-	<div id="container">
-		<h1><?php echo $heading; ?></h1>
-		<?php echo $message; ?>
-	</div>
-</body>
+        <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+        <link href="<?php echo base_url('assets/css/admin/prism.css') ?> " type="text/css" rel="stylesheet" media="screen,projection">
+        <link href="<?php echo base_url('assets/plugins/perfect-scrollbar/perfect-scrollbar.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
+        <!--<link href="<?php echo base_url('assets/plugins/chartist-js/chartist.min.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">-->
+        <link href="<?php echo base_url('assets/css/admin/page-center.css') ?> " type="text/css" rel="stylesheet" media="screen,projection">
+
+        <script src="<?php echo base_url('assets/js/jquery-3.1.1.min.js') ?>"></script>
+    </head>
+    <body class="cyan">
+        <div id="error-page">
+
+            <div class="row">
+                <div class="col s12">
+                    <div class="browser-window">
+                        <div class="top-bar">
+                            <div class="circles">
+                                <div id="close-circle" class="circle"></div>
+                                <div id="minimize-circle" class="circle"></div>
+                                <div id="maximize-circle" class="circle"></div>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="row">
+                                <div id="site-layout-example-top" class="col s12">
+                                    <p class="flat-text-logo center white-text caption-uppercase">Desculpe, mas não foi possível encontrar esta página :(</p>
+                                </div>
+                                <div id="site-layout-example-right" class="col s12 m12 l12">
+                                    <div class="row center">
+                                        <h1 class="text-long-shadow col s12">404</h1>
+                                    </div>
+                                    <div class="row center">
+                                        <p class="center white-text col s12">Parece que esta página não existe.</p>
+                                        <p class="center s12"><button onclick="goBack()" class="btn waves-effect waves-light">Voltar</button> <!-- <a href="index.html" class="btn waves-effect waves-light">Homepage</a>-->
+                                        <p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+    </body>
 </html>

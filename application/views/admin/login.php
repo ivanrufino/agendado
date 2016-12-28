@@ -37,7 +37,7 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
-                <button class="btn waves-effect waves-light col s12" type="submit" name="action">Submit
+                <button class="btn waves-effect waves-light col s12" type="submit" name="action">Acessar
                 <i class="material-icons right">send</i>
             </button>
               <!--<input type="submit" class="btn waves-effect waves-light col s12" >-->
@@ -47,7 +47,7 @@
           
         <div class="row">
           <div class="input-field col s6 m6 l6">
-            <p class="margin medium-small"><a href="page-register.html">Cadastre-se</a></p>
+            <p class="margin medium-small"><a href="registro_adm">Cadastre-se</a></p>
           </div>
           <div class="input-field col s6 m6 l6">
               <p class="margin right-align medium-small"><a href="page-forgot-password.html">Esqueceu a Senha?</a></p>
