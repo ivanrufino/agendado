@@ -17,6 +17,8 @@ Scripts
 
 <!-- jQuery Library -->
 <script type="text/javascript" src="<?php echo base_url('assets/js/admin/jquery-1.11.2.min.js')?>"></script>
+<!-- jQuery mask -->
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery.mask.min.js')?>"></script>
 <!--materialize js-->
 <script src="<?php echo base_url('assets/js/admin/materialize.js') ?>"></script>
 <!--prism-->

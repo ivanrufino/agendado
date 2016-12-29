@@ -34,7 +34,7 @@ class Migration_Migracao_inicial extends CI_Migration {
                 `nome` varchar(150) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nome ou razão social',
                 `tipo` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'F= pessoa fisica, J=pessoa Juridica',
                 `cnpj` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-                `cpf` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+                `cpf` varchar(14) COLLATE utf8_unicode_ci NOT NULL,
                 `area` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
                 `segmento` int(11) DEFAULT NULL,
                 `url` varchar(20) COLLATE utf8_unicode_ci NOT NULL,

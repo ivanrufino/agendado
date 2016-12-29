@@ -220,6 +220,9 @@ $(function() {
       height: '200'
     });
   }
-
+  $('.time').mask('00:00');
+  $('.telefone').mask('(00) 0000-0000');
+  $('.cpf').mask('000.000.000-00', {reverse: true});
+  $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
 
 }); // end of document ready

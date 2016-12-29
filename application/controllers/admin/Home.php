@@ -8,8 +8,8 @@ class Home extends CI_Controller{
         }
     }
     public function index() {
-        print_r($this->session->userdata);die();
-        $this->template('exemplo');
+        $dados['admin'] = $this->session->userdata;
+        $this->template('home',$dados );
         //$this->load->view('admin/template/header');
       //  $this->load->view('admin/home');
         //$this->load->view('admin/template/footer');

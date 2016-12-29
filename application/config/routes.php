@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 /* Administrador */
 $route['login_adm'] = 'admin/administrador/login';
+$route['admin/logout_adm'] = 'admin/administrador/logout';
 $route['acessar_adm'] = 'admin/administrador/acessar';
 $route['registro_adm'] = 'admin/administrador/cadastro';
 $route['cadastrar_adm'] = 'admin/administrador/cadastrar';
