@@ -60,3 +60,4 @@ $route['registro_adm'] = 'admin/administrador/cadastro';
 $route['cadastrar_adm'] = 'admin/administrador/cadastrar';
 $route['admin/cadastro_efetuado/(:num)'] = 'admin/administrador/cadastro_efetuado/$1';
 $route['cadastro_completo'] = 'admin/administrador/cadastro_completo';
+$route['cadastrar_completo'] = 'admin/administrador/cadastrar_completo';

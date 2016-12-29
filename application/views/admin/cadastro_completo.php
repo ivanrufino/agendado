@@ -6,7 +6,7 @@
     <!-- End Page Loading -->
     <div id="login-page" class="row">
         <div class="col s12 z-depth-4 card-panel">
-            <form class="register-form" method="post" action="cadastrar_adm">
+            <form class="register-form" method="post" action="cadastrar_completo">
                 <div class="row">
                     <div class="input-field col s12 center">
                         <h4>Complete seu cadastro</h4>
@@ -24,8 +24,8 @@
                     <div class=" input-field col s6">
                         <select name ="tipo">
                             <option value="" disabled selected>Escolha uma opção</option>
-                            <option value="1">Pessoa Júridica</option>
-                            <option value="2">Pessoa Física</option>                            
+                            <option value="1" <?php echo  set_select('tipo', '1'); ?>>Pessoa Júridica</option>
+                            <option value="2" <?php echo  set_select('tipo', '2'); ?>>Pessoa Física</option>                            
                         </select>
                         <label>Tipo</label>
                         <?php echo form_error('tipo'); ?>
@@ -51,7 +51,7 @@
                         <i class="mdi-communication-email prefix"></i>
                         <input id="telefone" type="text" name="telefone" value="<?php echo set_value('telefone'); ?>">
                         <label for="telefone" class="center-align">Telefone</label>
-                        <?php echo form_error('url'); ?>
+                        <?php echo form_error('telefone'); ?>
                     </div>
                 </div>
                 <div class="row margin">
