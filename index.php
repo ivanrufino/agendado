@@ -61,6 +61,7 @@ switch ($_SERVER["HTTP_HOST"]) {
        
         break;
     case "www.agendado.hol.es":
+    case "agendado.hol.es":
         $_SERVER['CI_ENV']='testing';
         
         break;
