@@ -30,6 +30,19 @@ CREATE OR REPLACE
 JOIN funcionario f on f.id = a.id_funcionario
 join servicos s on s.id = a.id_servico
 
+CREATE OR REPLACE
+ ALGORITHM = UNDEFINED
+ VIEW `v_cliente_agendamento`
+ AS select a.*,s.id_empresa,u.nome,u.email from agendamento a 
+join servicos s on a.id_servico = s.id 
+join usuario u on u.id = a.id_cliente
+
+CREATE
+ ALGORITHM = UNDEFINED
+ VIEW `v_plano_associado`
+ AS SELECT p.nome,p.valor_mensal,p.valor_anual,p.descricao, dp.*,pa.id_associado FROM `plano` p 
+join detalhes_plano dp on dp.id_plano = p.id
+join plano_associado pa on pa.id_plano = p.id
 
 ALTER TABLE  `agenda` CHANGE  `id_funcionario`  `id_func_serv` INT( 11 ) NOT NULL
 ALTER TABLE  `agenda` CHANGE  `dia`  `dia` VARCHAR( 15 ) NOT NULL

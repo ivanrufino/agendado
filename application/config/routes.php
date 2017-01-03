@@ -49,6 +49,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+/*empresa url*/
+require_once( BASEPATH .'database/DB.php' );
+$db =& DB();
+$query = $db->get( 'empresa' );
+$result = $query->result();
+foreach( $result as $row )
+{
+    $route[$row->url]                 = "empresa/index/{$row->id}";
+    $route[ $row->url.'/(:any)' ]         = "empresa/$1/{$row->id}";
+  //  $route[ $row->controller ]           = 'error404';
+   // $route[ $row->controller.'/:any' ]   = 'error404';
+}
+
 $route['default_controller'] = 'home';
 $route['404_override'] = 'erros/page404';
 $route['translate_uri_dashes'] = FALSE;
@@ -62,3 +76,8 @@ $route['cadastrar_adm'] = 'admin/administrador/cadastrar';
 $route['admin/cadastro_efetuado/(:num)'] = 'admin/administrador/cadastro_efetuado/$1';
 $route['cadastro_completo'] = 'admin/administrador/cadastro_completo';
 $route['cadastrar_completo'] = 'admin/administrador/cadastrar_completo';
+
+/*menu administrador*/
+$route['admin/_(:any)'] = 'admin/home/$1';
+
+

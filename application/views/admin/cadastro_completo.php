@@ -32,20 +32,12 @@
                     </div>
                 </div>
                 <div class="row margin">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <i class="material-icons prefix">person</i>
 
                         <input id="cnpj_cpf" type="text" name="cnpj_cpf" class="cnpj_cpf" disabled="" value="<?php echo set_value('cnpj_cpf'); ?>">
                         <label for="cnpj_cpf" class="center-align">CPF ou CNPJ</label>
                         <?php echo form_error('cnpj_cpf'); ?>
-                    </div>
-                </div>
-                <div class="row margin">
-                    <div class="input-field col s6">
-                        <i class="mdi-communication-email prefix"></i>
-                        <input id="url" type="text" name="url" value="<?php echo set_value('url'); ?>">
-                        <label for="url" class="center-align">Url de acesso</label>
-                        <?php echo form_error('url'); ?>
                     </div>
                     <div class="input-field col s6">
                         <i class="mdi-communication-email prefix"></i>
@@ -53,6 +45,15 @@
                         <label for="telefone" class="center-align">Telefone</label>
                         <?php echo form_error('telefone'); ?>
                     </div>
+                </div>
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <i class="mdi-communication-email prefix"></i>
+                        <input id="url" type="text" name="url" value="<?php echo set_value('url',  base_url()); ?>" readonly="">
+                        <label for="url" class="center-align">Url de acesso</label>
+                        <?php echo form_error('url'); ?>
+                    </div>
+                    
                 </div>
                 <div class="row margin">
                     <div class="input-field col s6">
@@ -101,8 +102,15 @@
     <!--plugins.js - Some Specific JS codes for Plugin Settings-->
     <script type="text/javascript" src="<?php echo base_url('assets/js/plugins.js') ?>"></script>
 
+    <script src="<?php echo base_url('assets/js/url_slug.js') ?>"></script>
     <script>
     $(document).ready(function(){
+        var url =  $("#url").val()
+        $("#nome").keyup(function(){
+            
+            console.log($("#nome").val());
+            $("#url").val(url+ url_slug($("#nome").val()));
+        })
 //        if($(".cnpj_cpf").val()!== ""){
 //            $(".cnpj_cpf").removeAttr('disabled');
 //        }

@@ -118,6 +118,9 @@ class Administrador extends CI_Controller {
                $dados_assoc= $this->session->userdata;
                
                  $this->associados->update($dados_assoc['id'], array('id_empresa'=>$id_empresa));
+                 
+                $dados_assoc['id_empresa'] = $id_empresa;
+                $this->session->set_userdata($dados_assoc);
                 redirect("admin");
             } else {
                 $this->cadastro_completo();

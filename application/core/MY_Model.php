@@ -56,12 +56,15 @@ class MY_Model extends CI_Model {
         }
     }
 
-    function getWhere($where_campo, $where_busca, $sort = 'id', $order = 'asc') {
+    function getWhere($where_campo, $where_busca, $sort = 'id', $order = 'asc',$groupBy = null) {
         $this->db->order_by($sort, $order);
         $this->db->where($where_campo, $where_busca);
-
+        if(!is_null($groupBy)){
+             $this->db->group_by($groupBy); 
+        }
+            
         $query = $this->db->get($this->table);
-
+        
         if ($query->num_rows() > 0) {
             return $query->result_array();
         } else {
@@ -87,6 +90,7 @@ class MY_Model extends CI_Model {
     }
     public function getLastQuery() {
         return $this->db->last_query();
+        
     }
 
 }

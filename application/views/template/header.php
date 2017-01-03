@@ -20,6 +20,7 @@
 <!-- DATETIME PICKER -->
 <script src="<?php echo base_url('assets/datepicker/jquery.simple-dtpicker.js') ?>"></script>
 <link href="<?php echo base_url('assets/datepicker/jquery.simple-dtpicker.css')?>" type="text/css" rel="stylesheet"/>
+<script src="<?php echo base_url('assets/js/url_slug.js') ?>"></script>
 
 
 

@@ -1,10 +1,10 @@
 <body class="">
   <!-- Start Page Loading -->
-    <div id="loader-wrapper">
+<!--    <div id="loader-wrapper">
         <div id="loader"></div>        
         <div class="loader-section section-left " style="background: rgba(100, 128, 50, 0.9);"></div> 
         <div class="loader-section section-right" style="background: rgba(100, 128, 50, 0.9);"></div> 
-    </div>
+    </div>-->
     <!-- End Page Loading --> 
 <!-- START HEADER -->
   <header id="header" class="page-topbar">
