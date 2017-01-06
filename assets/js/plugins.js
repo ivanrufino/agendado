@@ -103,7 +103,7 @@ $(function() {
   });
 
   // Perfect Scrollbar
-  $('select').not('.disabled').material_select();
+ $('select').not('.disabled').material_select();
     var leftnav = $(".page-topbar").height();  
     var leftnavHeight = window.innerHeight - leftnav;
   $('.leftside-navigation').height(leftnavHeight).perfectScrollbar({

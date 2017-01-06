@@ -1,3 +1,6 @@
+<p>
+<pre>                                                                                                                                             </pre>
+</p>
 <!-- START FOOTER -->
 <footer class="page-footer">
     <div class="footer-copyright">
@@ -28,9 +31,15 @@ Scripts
 <!-- chartist -->
 <script type="text/javascript" src="<?php echo base_url('assets/plugins/chartist-js/chartist.min.js')?>"></script>   
 
+
+
+<?php if(isset($js)){
+     foreach ($js as $arquivo) {
+         printf("<script type='text/javascript' src='%s'></script>", base_url("assets/$arquivo"));
+     }
+} ?>
 <!--plugins.js - Some Specific JS codes for Plugin Settings-->
 <script type="text/javascript" src="<?php echo base_url('assets/js/plugins.js')?>"></script>
-
 </body>
 
 </html>

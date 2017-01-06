@@ -25,12 +25,9 @@
     <div class="container">
         <div class="section">
 
-            <p class="caption">___</p>
-            <div class="divider"></div>
-
-            <!--card stats start-->
+                       <!--card stats start-->
             <div id="card-stats" class="seaction">
-                <h4 class="header">Stats Cards</h4>
+                <!--<h4 class="header">Stats Cards</h4>-->
                 <p> Show your important stats with top stats in colorful cards.</p>
                 <div class="row">
                     <div class="col s12 m6 l3">
@@ -38,7 +35,7 @@
                             <div class="card-content  green white-text">
                                 <p class="card-stats-title"><i class="mdi-action-trending-up"></i> Serviços</p>
                                 <h4 class="card-stats-number"><?php echo $servicos['count']?></h4>
-                                <p class="card-stats-compare"> <span class="blue-grey-text text-lighten-5"><a href='' class="btn btn-link white blue-grey-text">Visualizar</a></span>
+                                <p class="card-stats-compare"> <span class="blue-grey-text text-lighten-5"><a href='<?php echo base_url('admin/_servicos')?>' class="btn btn-link white blue-grey-text">Visualizar</a></span>
                                 </p>
                             </div>
                             <div class="card-action  green darken-2">

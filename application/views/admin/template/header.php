@@ -32,7 +32,7 @@
   <link href="<?php echo base_url('assets/plugins/perfect-scrollbar/perfect-scrollbar.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
   <!--<link href="<?php echo base_url('assets/plugins/chartist-js/chartist.min.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">-->
   <link href="<?php echo base_url('assets/css/admin/page-center.css')?> " type="text/css" rel="stylesheet" media="screen,projection">
-  
+  <link href="<?php echo base_url('assets/plugins/data-tables/css/jquery.dataTables.min.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
   <script src="<?php echo base_url('assets/js/jquery-3.1.1.min.js') ?>"></script>
 </head>
 
